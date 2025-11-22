@@ -1,5 +1,5 @@
 "use client"
-import { useTheme } from "../contexts/theme-provider"
+import { useTheme } from "./contexts/theme-provider"
 import { translations } from "@/lib/i18n"
 
 export function Footer() {
