@@ -1,4 +1,5 @@
 "use client"
+
 import { useTheme } from "../../contexts/theme-provider"
 import { translations } from "@/lib/i18n"
 import { motion } from "framer-motion"
