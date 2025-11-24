@@ -27,7 +27,7 @@ export const ProjectCTA = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <Button size="lg" variant="outline" className="gap-3 border-2">
+            <Button size="lg" variant="outline" className="gap-3 border-2 hover:text-white dark:hover:text-accent">
               <Github className="w-5 h-5" />
               Ver todos los proyectos en GitHub
               <ExternalLink className="w-5 h-5" />

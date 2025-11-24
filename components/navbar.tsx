@@ -2,13 +2,13 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { Menu, X, Sun, Moon, Globe } from "lucide-react"
 import { useTheme } from "./contexts/theme-provider"
 import { translations } from "@/lib/i18n"
-import { Button } from "@/components/ui/button"
+import { motion, AnimatePresence } from "framer-motion"
+import { NavbarActions } from "./ui/navbar/navbar-actions"
 
 export function Navbar() {
-  const { theme, language, toggleTheme, toggleLanguage } = useTheme()
+  const { language } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
   const [scrollProgress, setScrollProgress] = useState(0)
   const t = translations[language]
@@ -61,40 +61,58 @@ export function Navbar() {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full">
-              {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
-            </Button>
-            <Button variant="ghost" size="icon" onClick={toggleLanguage} className="rounded-full">
-              <Globe className="w-5 h-5" />
-            </Button>
-              <span className="text-xs ml-1">{language.toUpperCase()}</span>
-
-            {/* Mobile Menu Button */}
-            <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+          <NavbarActions isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden pb-4 space-y-2">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block px-3 py-2 text-foreground/80 hover:text-foreground transition-colors"
-                onClick={() => setIsOpen(false)}
+        {/* Mobile Navigation con animación SIMPLIFICADA */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              className="md:hidden overflow-hidden"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <motion.div
+                className="pb-4 space-y-2"
+                initial="hidden"
+                animate="visible"
+                exit="hidden"
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.1,
+                      delayChildren: 0.1
+                    }
+                  }
+                }}
               >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        )}
+                {navItems.map((item, index) => (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Link
+                      href={item.href}
+                      className="block px-3 py-3 text-foreground/80 hover:text-foreground hover:bg-accent/50 rounded-lg transition-all duration-200"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
-      {/* Progress Bar - MEJORADA */}
+      {/* Progress Bar */}
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-border/50 transition-colors duration-300">
         <div 
           className="h-full transition-all duration-150 ease-out bg-linear-to-r from-primary via-accent to-cyan-400 relative overflow-hidden"

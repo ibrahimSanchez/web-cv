@@ -52,9 +52,8 @@ export const HeroBody = () => {
       }
     
       const handleDownloadCV = () => {
-        // Simular descarga del CV
         const link = document.createElement('a')
-        link.href = '/cv.pdf' // Ruta a tu archivo CV
+        link.href = '/cv.pdf' 
         link.download = 'CV_Tu_Nombre.pdf'
         link.click()
       }
@@ -83,7 +82,7 @@ export const HeroBody = () => {
               backgroundSize: "200% 200%"
             }}
           >
-            Tu Nombre Aquí
+            Ibrahim Márquez 
           </motion.h1>
         </motion.div>
 
@@ -106,7 +105,7 @@ export const HeroBody = () => {
           variants={itemVariants}
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button size="lg" className="gap-2 group relative overflow-hidden">
+            <Button size="lg" className="gap-2 group relative overflow-hidden w-1/2 sm:w-auto">
               <span className="relative z-10 flex items-center">
                 {t.home.cta}
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
@@ -119,7 +118,7 @@ export const HeroBody = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="gap-2 group border-2"
+              className="gap-2 group border-2 w-1/2 sm:w-auto hover:text-white dark:hover:text-accent"
               onClick={handleDownloadCV}
             >
               <Download className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" />

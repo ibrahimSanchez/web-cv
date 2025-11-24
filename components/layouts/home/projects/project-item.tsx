@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { useTheme } from '@/components/contexts/theme-provider';
 import { translations } from '@/lib/i18n';
 
-
 interface Props {
   project: Project;
   index: number;
@@ -84,9 +83,14 @@ export const ProjectItem = ({ project, index }: Props) => {
                     className="w-full h-full"
                   >
                     <img
-                      src={project.image || "/placeholder.svg"}
+                      src={project.imageLight || "/placeholder.svg"}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover dark:hidden"
+                    />
+                    <img
+                      src={project.imageDark || "/placeholder.svg"}
+                      alt={project.title}
+                      className="w-full h-full object-cover hidden dark:block"  
                     />
                   </motion.div>
                   
@@ -151,7 +155,7 @@ export const ProjectItem = ({ project, index }: Props) => {
                       </Button>
                     </motion.div>
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button size="sm" variant="outline" className="gap-2 bg-transparent">
+                      <Button size="sm" variant="outline" className="gap-2 bg-transparent hover:text-white dark:hover:text-accent">
                         <Github className="w-4 h-4" />
                       </Button>
                     </motion.div>
