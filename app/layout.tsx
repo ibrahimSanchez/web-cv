@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/contexts/theme-provider";
 import "./globals.css";
+import { FloatingScrollToTop } from "@/components/floating-scroll-to-top";
 
 
 export default function RootLayout({
@@ -16,6 +17,10 @@ export default function RootLayout({
          <ThemeProvider>
           <Navbar />
           {children}
+          <FloatingScrollToTop 
+            threshold={200}
+            position="bottom-right"
+          />
         </ThemeProvider>
         <Analytics />
       </body>

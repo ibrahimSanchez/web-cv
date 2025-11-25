@@ -8,21 +8,24 @@ export const SkillList = () => {
   const skills: Skills = {
     frontend: [
       { name: "React", level: 95 },
-      { name: "TypeScript", level: 90 },
-      { name: "Tailwind CSS", level: 92 },
       { name: "Next.js", level: 93 },
+      { name: "React-native", level: 80 },
+      { name: "Tailwind CSS", level: 92 },
+      { name: "TypeScript / JavaScript", level: 90 },
     ],
     backend: [
-      { name: "Node.js", level: 88 },
-      { name: "PostgreSQL", level: 85 },
+      { name: "Node.js / Express / Nest.js", level: 88 },
+      { name: "FastApi / DJango", level: 95 },
       { name: "REST APIs", level: 90 },
-      { name: "Authentication", level: 87 },
+      { name: "PostgreSQL / Mongo DB / Cosmos DB", level: 85 },
+      { name: "Python / TypeScript / JavaScript", level: 96 },
     ],
     tools: [
-      { name: "Git", level: 92 },
+      { name: "Git / Github", level: 95 },
+      { name: "Microsoft Azure", level: 78 },
+      { name: "GitLab", level: 93 },
       { name: "Docker", level: 80 },
       { name: "CI/CD", level: 85 },
-      { name: "Azure", level: 78 },
     ],
   }
 
