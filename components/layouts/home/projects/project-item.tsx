@@ -149,7 +149,7 @@ export const ProjectItem = ({ project, index }: Props) => {
                   {/* Botones de acción */}
                   <div className="flex gap-3 pt-4 border-t border-border">
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
-                      <Button size="sm" variant="default" className="gap-2 w-full">
+                      <Button size="sm" variant="default" className="gap-2 w-full hover:bg-linear-to-r from-primary to-accent transition duration-300">
                         <ExternalLink className="w-4 h-4" />
                         {t.projects.viewProject}
                       </Button>

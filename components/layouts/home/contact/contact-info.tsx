@@ -65,7 +65,7 @@ export const ContactInfo = () => {
                     className="text-foreground/70 hover:text-primary transition-colors text-lg"
                     whileHover={{ x: 5 }}
                   >
-                    tu@email.com
+                    sanchezibrahim296@email.com
                   </motion.a>
                 </div>
               </div>
@@ -92,7 +92,7 @@ export const ContactInfo = () => {
                     className="text-foreground/70 hover:text-primary transition-colors text-lg"
                     whileHover={{ x: 5 }}
                   >
-                    +34 123 456 789
+                    +53 54644183
                   </motion.a>
                 </div>
               </div>
@@ -114,7 +114,7 @@ export const ContactInfo = () => {
                 </motion.div>
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Ubicación</h3>
-                  <p className="text-foreground/70 text-lg">Madrid, España</p>
+                  <p className="text-foreground/70 text-lg">La Habana, Cuba</p>
                 </div>
               </div>
             </motion.div>

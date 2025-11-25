@@ -2,6 +2,8 @@
 
 import { useTheme } from "@/components/contexts/theme-provider"
 import { Button } from "@/components/ui/button"
+import { Spinner } from "@/components/ui/spinner"
+import { envConfig } from "@/config/env"
 import { translations } from "@/lib/i18n"
 import { motion } from "framer-motion"
 import { Send } from "lucide-react"
@@ -23,21 +25,39 @@ export const ContactForm = () => {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
-    // Simular envío del formulario
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    console.log("Formulario enviado:", formData)
-    setFormData({ name: "", email: "", message: "" })
-    setSubmitted(true)
-    setIsSubmitting(false)
-    
-    // Resetear el estado de enviado después de 3 segundos
-    setTimeout(() => setSubmitted(false), 3000)
-  }
+  e.preventDefault();
+  setIsSubmitting(true);
 
+  const formspreeEndpoint = envConfig.formpree || ''; 
+
+  try {
+    const response = await fetch(formspreeEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json' 
+      },
+      body: JSON.stringify(formData), 
+    });
+
+    if (!response.ok) {
+      throw new Error('Hubo un error al enviar el formulario');
+    }
+
+    // Si todo fue bien
+    console.log("Formulario enviado:", formData);
+    setFormData({ name: "", email: "", message: "" });
+    setSubmitted(true);
+
+  } catch (error) {
+    console.error("Error:", error);
+    // Aquí podrías mostrar un mensaje de error al usuario
+  } finally {
+    setIsSubmitting(false);
+    // Resetear el estado de enviado después de 3 segundos
+    setTimeout(() => setSubmitted(false), 3000);
+  }
+};
 
   const itemVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -145,16 +165,11 @@ export const ContactForm = () => {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full gap-3 relative overflow-hidden"
+                    className="w-full gap-3 relative overflow-hidden hover:bg-linear-to-r from-primary to-accent transition duration-300" 
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                      >
-                        <Send className="w-5 h-5" />
-                      </motion.div>
+                      <Spinner />
                     ) : submitted ? (
                       <motion.div
                         initial={{ scale: 0 }}
@@ -178,12 +193,6 @@ export const ContactForm = () => {
                         {t.contact.sendMessage}
                       </>
                     )}
-                    
-                    {/* Efecto de fondo animado */}
-                    <motion.div
-                      className="absolute inset-0 bg-linear-to-r from-primary to-accent opacity-0 hover:opacity-100 transition-opacity duration-300"
-                      whileHover={{ opacity: 1 }}
-                    />
                   </Button>
                 </motion.div>
               </motion.div>

@@ -5,7 +5,7 @@ import { Calendar, Code2, Users, Zap } from "lucide-react"
 export const AboutStatistics = () => {
 
   const statistics = [
-            { number: "3+", label: "Años de Experiencia", icon: Calendar },
+            { number: "5+", label: "Años de Experiencia", icon: Calendar },
             { number: "50+", label: "Proyectos Completados", icon: Code2 },
             { number: "30+", label: "Clientes Satisfechos", icon: Users },
             { number: "15+", label: "Tecnologías", icon: Zap }

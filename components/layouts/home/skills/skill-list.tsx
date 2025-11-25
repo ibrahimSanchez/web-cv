@@ -22,7 +22,7 @@ export const SkillList = () => {
       { name: "Git", level: 92 },
       { name: "Docker", level: 80 },
       { name: "CI/CD", level: 85 },
-      { name: "Figma", level: 78 },
+      { name: "Azure", level: 78 },
     ],
   }
 

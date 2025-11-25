@@ -34,7 +34,8 @@ export const AboutCard = () => {
                     ease: "easeInOut"
                   }}
                 >
-                  <Rocket className="w-16 h-16 text-primary" />
+                  <img src='/img/person.jpg' alt="my-photo" className="p-6 rounded-full"/>
+                  {/* <Rocket className="w-16 h-16 text-primary" /> */}
                 </motion.div>
               </div>
 

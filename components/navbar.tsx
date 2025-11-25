@@ -19,7 +19,7 @@ export function Navbar() {
     { label: t.nav.skills, href: "/#skills" },
     { label: t.nav.projects, href: "/#projects" },
     { label: t.nav.contact, href: "/#contact" },
-    { label: "Admin", href: "/admin" },
+    // { label: "Admin", href: "/admin" },
   ]
 
   useEffect(() => {

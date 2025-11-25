@@ -1,8 +1,6 @@
 import { Code, Star, Zap, TrendingUp } from "lucide-react"
 import { motion } from "framer-motion"
 
-
-
 export const SkillStatistics = () => {
 
 
@@ -36,7 +34,7 @@ export const SkillStatistics = () => {
           {[
             { value: "95%", label: "Satisfacción", icon: TrendingUp },
             { value: "50+", label: "Proyectos", icon: Code },
-            { value: "3+", label: "Años Exp", icon: Star },
+            { value: "5+", label: "Años Exp", icon: Star },
             { value: "100%", label: "Compromiso", icon: Zap },
           ].map((stat, index) => (
             <motion.div
