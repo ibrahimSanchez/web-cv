@@ -6,12 +6,17 @@ import { motion } from "framer-motion"
 import { ProjectList } from "./projects/project-list"
 import { ProjectHeader } from "./projects/project-header"
 import { ProjectCTA } from "./projects/project-cta"
+import { useTheme } from "@/components/contexts/theme-provider"
+import { translations } from "@/lib/i18n"
 
 export function ProjectsSection() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
+
+  const { language } = useTheme()
+  const t = translations[language]
 
   const [isVisible, setIsVisible] = useState(false)
 
@@ -47,7 +52,7 @@ export function ProjectsSection() {
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
       >
-        <ProjectHeader />
+        <ProjectHeader title={t.projects.titleHome} />
         <ProjectList />
         <ProjectCTA />
       </motion.div>

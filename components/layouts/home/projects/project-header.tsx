@@ -1,12 +1,11 @@
 import { motion } from "framer-motion"
 import { Star, Zap } from "lucide-react"
-import { translations } from "@/lib/i18n"
-import { useTheme } from "@/components/contexts/theme-provider"
 
-export const ProjectHeader = () => {
+interface Props {
+  title: string;
+}
 
-  const { language } = useTheme()
-  const t = translations[language]
+export const ProjectHeader = ({ title }: Props) => {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -30,7 +29,7 @@ export const ProjectHeader = () => {
               <Star className="w-6 h-6 text-primary" />
             </motion.div>
             <h2 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
-              {t.projects.title}
+              {title}
             </h2>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}

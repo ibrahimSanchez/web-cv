@@ -32,7 +32,8 @@ export const translations = {
       },
     },
     projects: {
-      title: "Proyectos",
+      titleHome: "Proyectos Destacados",
+      titlePage: "Proyectos",
       viewProject: "Ver proyecto",
       technologies: "Tecnologías",
     },
@@ -82,7 +83,8 @@ export const translations = {
       },
     },
     projects: {
-      title: "Projects",
+      titleHome: "Projects Highlights",
+      titlePage: "Projects",
       viewProject: "View project",
       technologies: "Technologies",
     },

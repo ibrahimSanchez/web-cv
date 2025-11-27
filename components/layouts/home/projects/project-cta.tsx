@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
@@ -29,12 +29,10 @@ export const ProjectCTA = () => {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <Link 
-              href="https://github.com/ibrahimSanchez" 
-              target="_blank"
+              href="/projects" 
             >
               <Button size="lg" variant="outline" className="gap-3 border-2 hover:text-white dark:hover:text-accent cursor-pointer">
-                <Github className="w-5 h-5" />
-                Ver todos los proyectos en GitHub
+                Ver todos los proyectos
                 <ExternalLink className="w-5 h-5" />
               </Button>
             </Link>

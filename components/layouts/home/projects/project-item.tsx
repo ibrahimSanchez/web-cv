@@ -1,10 +1,10 @@
-import React from 'react'
 import { motion } from "framer-motion"
 import { Project } from '@/interfaces/project.interface'
 import { ArrowUpRight, ExternalLink, Github, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/components/contexts/theme-provider';
 import { translations } from '@/lib/i18n';
+import Link from "next/link";
 
 interface Props {
   project: Project;
@@ -150,8 +150,10 @@ export const ProjectItem = ({ project, index }: Props) => {
                   <div className="flex gap-3 pt-4 border-t border-border">
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex-1">
                       <Button size="sm" variant="default" className="gap-2 w-full hover:bg-linear-to-r from-primary to-accent transition duration-300">
-                        <ExternalLink className="w-4 h-4" />
-                        {t.projects.viewProject}
+                        <Link className="w-full flex justify-center gap-2 items-center" href={project.link} >
+                          <ExternalLink className="w-4 h-4" />
+                          {t.projects.viewProject}
+                        </Link>
                       </Button>
                     </motion.div>
                     <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
