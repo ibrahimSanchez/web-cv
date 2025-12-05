@@ -20,25 +20,25 @@ export const ProjectHeader = ({ title }: Props) => {
   }
 
   return (
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <div className="flex items-center justify-center gap-3 mb-4">
+        <motion.div variants={itemVariants} className="text-center mb-8 sm:mb-12 md:mb-16 px-2">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
             <motion.div
               animate={{ rotate: [0, 180, 360] }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
             >
-              <Star className="w-6 h-6 text-primary" />
+              <Star className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
             </motion.div>
-            <h2 className="text-4xl md:text-5xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-linear-to-r from-primary to-accent bg-clip-text text-transparent px-2">
               {title}
             </h2>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
-              <Zap className="w-6 h-6 text-accent" />
+              <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
             </motion.div>
           </div>
-          <p className="text-foreground/70 text-lg max-w-2xl mx-auto">
+          <p className="text-foreground/70 text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-4">
             Descubre mis proyectos más destacados donde la creatividad se encuentra con la tecnología
           </p>
         </motion.div>
