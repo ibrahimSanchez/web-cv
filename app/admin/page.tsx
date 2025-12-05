@@ -1,4 +1,4 @@
-import { MainAdmin } from "@/components/layouts/admin/MainAdmin";
+import { MainAdmin } from "@/src/components/layouts/admin/MainAdmin";
 
 
 export default function AdminPage(){
