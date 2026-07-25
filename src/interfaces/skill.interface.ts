@@ -1,19 +1,18 @@
-import { LucideIcon } from "lucide-react";
-
+// skill.interface.ts
 export interface Skill {
-  name: string;
-  level: number;
+  name: string
+  // level: number - removed
 }
 
 export interface Skills {
-  frontend: Skill[];
-  backend: Skill[];
-  tools: Skill[];
+  frontend: Skill[]
+  backend: Skill[]
+  tools: Skill[]
 }
 
 export interface SkillCategory {
-  icon: LucideIcon;      
-  label: string;
-  items: Skill[];
-  color: string;         
+  icon: any
+  label: string
+  items: Skill[]
+  color: string
 }

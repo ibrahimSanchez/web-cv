@@ -50,8 +50,6 @@ export default function MainProjectsPage(){
                     <ProjectItem key={project.id} project={project} index={index} />
                 ))}
                 </motion.div>
-
-                <ProjectCTA />
             </motion.div>
         </section>
 )}

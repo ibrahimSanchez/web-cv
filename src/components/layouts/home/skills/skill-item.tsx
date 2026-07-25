@@ -78,14 +78,7 @@ export const SkillItem = ({ category, categoryIndex }: Props) => {
                             <span className="font-semibold text-foreground/90 group-hover/skill:text-primary transition-colors duration-300">
                               {skill.name}
                             </span>
-                            <motion.span 
-                              className="text-sm font-bold text-foreground/60"
-                              initial={{ scale: 0 }}
-                              animate={{ scale: 1 }}
-                              transition={{ delay: categoryIndex * 0.1 + index * 0.1 + 1.2, type: "spring" }}
-                            >
-                              {skill.level}%
-                            </motion.span>
+                            
                           </div>
                           <div className="w-full bg-border rounded-full h-3 overflow-hidden">
                             <motion.div
@@ -93,7 +86,7 @@ export const SkillItem = ({ category, categoryIndex }: Props) => {
                               variants={progressVariants}
                               initial="hidden"
                               animate="visible"
-                              custom={skill.level}
+                              custom={100}
                               whileHover={{ scaleY: 1.2 }}
                               transition={{ type: "spring", stiffness: 400 }}
                             />
